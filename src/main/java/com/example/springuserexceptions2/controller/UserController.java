@@ -20,12 +20,12 @@ public class UserController {
         try {
             result = UserService.checkData(login, password, confirmPassword);
         } catch (WrongLoginException e) {
-            return "Input login again";
+            return e.getMessage();
         } catch (WrongPasswordException e){
-            return "Input password again";
+            return e.getMessage();
         } catch (Exception e){
             return "Ooops... Shit happens. Try again";
         }
-        return (result ? "Успех" : "Не успех");
+        return (result ? "Successful" : "Unsuccessful");
     }
 }
