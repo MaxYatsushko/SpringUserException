@@ -10,7 +10,8 @@ import java.util.regex.Pattern;
 public class UserService {
     public static boolean checkData(String user, String password, String confirmPassword) {
         String pattern = "\\w+";
-        if(user.length() < 1 || user.length() > 20)
+
+        if (user.length() < 1 || user.length() > 20)
             throw new WrongLoginException("Incorrect length of login. You should input 1-20 symbols");
 
         boolean correctLogin = Pattern.matches(pattern, user);
